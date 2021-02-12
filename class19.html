@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="class19.js"></script>
+
+</head>
+<style>
+
+</style>
+
+<body>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<script>
+
+var array1='1';
+console.log(Array.isArray(array1));
+host1 =15;
+console.log(host1);
+
+function addvar(a,b){
+return a+b;
+}
+var value=this.addvar(2,3);
+console.log(value);
+
+var value1 =(a,b)=>{return a+b};
+console.log(value1(5,3));
+
+class demoClass{
+constructor(x,y){
+this.x=x;
+this.y=y;
+}
+printMethod(){
+console.log('X value    '+this.x+ 'Y value  '+this.y  );
+}
+
+}
+class childClass extends demoClass{
+
+printMethod(){
+console.log( 'Y value  '+this.y  );
+}
+}
+var obj= new childClass(1,2);
+obj.printMethod();
+
+
+
+var outv1=85;
+var outv2=10;
+
+
+function add(){
+var ad1=10;
+var ad2=15;
+console.log(ad1 +ad2+outv2);
+
+}
+this.add();
+
+
+
+try{
+
+var x=null;
+console.log(1);
+
+if(x == null){
+throw "x is Null Number";
+}
+}catch(err){
+var y='dsasSg';
+console.log(2);
+document.getElementById("demo2").innerHTML=y.length;
+document.getElementById("demo3").innerHTML=err;
+}
+finally{
+console.log(3)
+}
+
+</script>
+</body>
+</html>
