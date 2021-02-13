@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+</head>
+<style>
+
+</style>
+
+<body>
+hi !
+<p id="reqdemo"></p>
+<p id="demo2"></p>
+<script>
+
+var http= new XMLHttpRequest();
+http.onreadystatechange =function(){
+if(this.readyState === 4 && this.status == 200){
+console.log(this.responseText);
+document.getElementById("reqdemo").innerHTML=this.responseText;
+}
+}
+http.open("GET","https://jsonplaceholder.typicode.com/posts/1",true);
+http.send();
+
+let promise = new Promise(function(resolve,reject){
+let name="ashok";
+if(name ==="ashok"){resolve("Pass");  }
+else{reject("Fail");}
+})
+
+
+promise.then((success)=>{console.log('sssadas'+success)},(error)=>{console.log(error)});
+
+
+
+</script>
+</body>
+</html>
