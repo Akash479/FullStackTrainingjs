@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder) { 
       this.validateForm=this.formBuilder.group({
-        userName:[''],
-        password:[''],
+        userName:['ashok'],
+        password:['1234'],
         remember:['']
       })
     }
@@ -21,5 +21,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     console.log('sasags')
   }
+  loginMethod(){
+    let uName= this.validateForm.controls['userName'].value;
+    let password= this.validateForm.controls['password'].value;
 
+    alert(' UserName is: '+uName+' '+'Password is: '+password);
+  }
 }

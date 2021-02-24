@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<h1>hiii</h1>
+<!-- Data Binding  -->
+<!-- Interpolation {{}}
+Property Binding []
+Event Binding ()
+Two way Binding [()] -->
+<!-- {{inputValue}} -->
+Date is {{Date}}
+<button [disabled]="flag">Click me</button>
+<button (click)="m1()" >Click me</button>
+<input [(ngModel)]="inputValue" />
+
+<!-- <app-login></app-login> -->
+<!-- pipes : it is used to change a predefined value to UserDefined 
+syntax : {{varibale|pipename}} -->
+{{firstName|uppercase}}
+
+{{upperFirst|lowercase}}
+{{currency|currency:'INR'}}
+{{currency|currency}}
+{{number1|number:'.2'}}
+{{jvalue|json}}
+{{Date|date:'medium'}}
+{{fullLength|converion:'min'}}
