@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HelloComponent} from './hello/hello.component';
+import {WordComponent} from './word/word.component'
 
 const routes: Routes = [
-  {path: 'Hello', component: HelloComponent},
-  {path: '', redirectTo:'/hello-component', pathMatch: 'full'}
+  {path:'word', component: WordComponent},
+  {path:'', redirectTo:'word',pathMatch:'full'}
 ];
 
 @NgModule({
