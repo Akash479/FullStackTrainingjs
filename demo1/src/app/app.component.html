@@ -23,3 +23,29 @@ syntax : {{varibale|pipename}} -->
 {{jvalue|json}}
 {{Date|date:'medium'}}
 {{fullLength|converion:'min'}}
+<nz-select  [(ngModel)]="state" (ngModelChange)="optionsChnage($event)">
+    <nz-option nzValue="India" nzLabel="India"></nz-option>
+      <nz-option nzValue="Nepal" nzLabel="Nepal"></nz-option>
+ </nz-select>
+ <nz-select >
+   <nz-option *ngFor="let data of statesDropdown" [nzValue]="data.State" [nzLabel]="data.State"></nz-option>
+   
+ </nz-select>
+
+ <!-- Directives  4 Types
+
+ 1. Componentdirective
+ 2.  Atttribute Directives
+ 3.   Structural Directives
+ 4.  UserDefined Directive
+
+ NgStyle and NgClass -->
+ <!-- <div  [ngClass]="colorFlag ?'bg_blue':'bg_green'">
+HIiiiiiiiii
+ </div> -->
+
+ <button (click)="ColorChnage()">Click</button>
+
+ <div  [ngStyle]="{'background-color': colorFlag ? 'blue':'red'}">
+HIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+ </div>
