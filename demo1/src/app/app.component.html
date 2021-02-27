@@ -1,4 +1,11 @@
-<!-- <router-outlet></router-outlet> -->
+<ul>
+  <li routerLink="/login">Login</li>
+  <li routerLink="/register"> Reggister</li>
+</ul>
+
+
+
+<router-outlet></router-outlet>
 <h1>hiii</h1>
 <!-- Data Binding  -->
 <!-- Interpolation {{}}
@@ -48,4 +55,56 @@ HIiiiiiiiii
 
  <div  [ngStyle]="{'background-color': colorFlag ? 'blue':'red'}">
 HIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+ </div>
+
+ <!-- Structural Directives are 4 :
+ 1. ngIF 
+ 2. ngIf Else
+ 3.ngFor
+ 4. ng Switch -->
+
+ <div *ngIf="colorFlag; else  samrat "> Color :blue</div>
+ <ng-template   #samrat>
+Color:green
+
+ </ng-template>
+
+ <table>
+   <thead>
+     <tr>
+       <th>Id</th>
+       <th>Name</th>
+       <th>UserName</th>
+       <th>Email ID</th>
+     </tr>
+   </thead>
+   <tbody>
+     <!-- let and of are predefined option is userdefined -->
+      <tr *ngFor="let option of tableData" [ngStyle]="{'background-color':option.username ==='Bret' ?'red':'blue'}">
+        <td>{{option.id}}</td>
+        <td>{{option.name}}</td>
+        <td>{{option.username}}</td>
+        <td>{{option.email}}</td>
+      </tr>
+
+   </tbody>
+ </table>
+
+ <div [ngSwitch]="switchData">
+   <p *ngSwitchCase="'ab'">Blue</p>
+   <p *ngSwitchCase="'bc'">green</p>
+   <p *ngSwitchDefault >NO Data</p>
+
+ </div>
+
+ <div>
+   <div>
+
+   </div>
+   <div>
+     
+  </div>
+  <div>
+     
+  </div>
  </div>

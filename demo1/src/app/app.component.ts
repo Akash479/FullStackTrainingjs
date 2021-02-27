@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +21,12 @@ export class AppComponent {
   jvalue:any;
   fullLength:any;
   colorFlag:any;
-  constructor(){
+  tableData:any;
+  switchData:any;
+  constructor(private api:ApiService){
     this.colorFlag= true;
     this.Date= new Date();
+    this.switchData="";
     this.jsonCountries=[
       {Country:'India',State:"Ap"},
       {Country:'India',State:"Telangana"},
@@ -49,6 +53,8 @@ this.jvalue={'name':"angular",ver:11};
     }
 
     ColorChnage(){
+      this.switchData="bc"
       this.colorFlag=!this.colorFlag;
+      this.api.getData().subscribe(res=>this.tableData=res);
     }
 }

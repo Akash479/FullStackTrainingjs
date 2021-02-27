@@ -13,6 +13,9 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { ConverionPipe } from './converion.pipe';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserDirective } from './user.directive';
+
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
 };
@@ -23,7 +26,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     AppComponent,
     LoginComponent,
     ConverionPipe,
-    RegisterComponent
+    RegisterComponent,
+    UserDirective
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     DemoNgZorroAntdModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
 
   ],
   providers: [{ provide: NZ_ICONS, useValue: icons }],
