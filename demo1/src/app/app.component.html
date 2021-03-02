@@ -1,27 +1,27 @@
-<ul>
+<!-- <ul>
   <li routerLink="/login">Login</li>
   <li routerLink="/register"> Reggister</li>
-</ul>
+</ul> -->
 
 
 
-<router-outlet></router-outlet>
-<h1>hiii</h1>
+<!-- <router-outlet></router-outlet> -->
+<!-- <h1>hiii</h1> -->
 <!-- Data Binding  -->
 <!-- Interpolation {{}}
 Property Binding []
 Event Binding ()
 Two way Binding [()] -->
 <!-- {{inputValue}} -->
-Date is {{Date}}
+<!-- Date is {{Date}}
 <button [disabled]="flag">Click me</button>
-<button (click)="m1()" >Click me</button>
-<input [(ngModel)]="inputValue" />
+<button (click)="m1()">Click me</button>
+<input [(ngModel)]="inputValue" /> -->
 
 <!-- <app-login></app-login> -->
 <!-- pipes : it is used to change a predefined value to UserDefined 
 syntax : {{varibale|pipename}} -->
-{{firstName|uppercase}}
+<!-- {{firstName|uppercase}}
 
 {{upperFirst|lowercase}}
 {{currency|currency:'INR'}}
@@ -30,16 +30,16 @@ syntax : {{varibale|pipename}} -->
 {{jvalue|json}}
 {{Date|date:'medium'}}
 {{fullLength|converion:'min'}}
-<nz-select  [(ngModel)]="state" (ngModelChange)="optionsChnage($event)">
-    <nz-option nzValue="India" nzLabel="India"></nz-option>
-      <nz-option nzValue="Nepal" nzLabel="Nepal"></nz-option>
- </nz-select>
- <nz-select >
-   <nz-option *ngFor="let data of statesDropdown" [nzValue]="data.State" [nzLabel]="data.State"></nz-option>
-   
- </nz-select>
+<nz-select [(ngModel)]="state" (ngModelChange)="optionsChnage($event)">
+  <nz-option nzValue="India" nzLabel="India"></nz-option>
+  <nz-option nzValue="Nepal" nzLabel="Nepal"></nz-option>
+</nz-select>
+<nz-select>
+  <nz-option *ngFor="let data of statesDropdown" [nzValue]="data.State" [nzLabel]="data.State"></nz-option>
 
- <!-- Directives  4 Types
+</nz-select> -->
+
+<!-- Directives  4 Types
 
  1. Componentdirective
  2.  Atttribute Directives
@@ -47,64 +47,66 @@ syntax : {{varibale|pipename}} -->
  4.  UserDefined Directive
 
  NgStyle and NgClass -->
- <!-- <div  [ngClass]="colorFlag ?'bg_blue':'bg_green'">
+<!-- <div  [ngClass]="colorFlag ?'bg_blue':'bg_green'">
 HIiiiiiiiii
  </div> -->
 
- <button (click)="ColorChnage()">Click</button>
+<!-- <button (click)="ColorChnage()">Click</button>
 
- <div  [ngStyle]="{'background-color': colorFlag ? 'blue':'red'}">
-HIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
- </div>
+<div [ngStyle]="{'background-color': colorFlag ? 'blue':'red'}">
+  HIiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+</div> -->
 
- <!-- Structural Directives are 4 :
+<!-- Structural Directives are 4 :
  1. ngIF 
  2. ngIf Else
  3.ngFor
  4. ng Switch -->
 
- <div *ngIf="colorFlag; else  samrat "> Color :blue</div>
- <ng-template   #samrat>
-Color:green
+<!-- <div *ngIf="colorFlag; else  samrat "> Color :blue</div>
+<ng-template #samrat>
+  Color:green
 
- </ng-template>
+</ng-template>
 
- <table>
-   <thead>
-     <tr>
-       <th>Id</th>
-       <th>Name</th>
-       <th>UserName</th>
-       <th>Email ID</th>
-     </tr>
-   </thead>
-   <tbody>
-     <!-- let and of are predefined option is userdefined -->
-      <tr *ngFor="let option of tableData" [ngStyle]="{'background-color':option.username ==='Bret' ?'red':'blue'}">
-        <td>{{option.id}}</td>
-        <td>{{option.name}}</td>
-        <td>{{option.username}}</td>
-        <td>{{option.email}}</td>
-      </tr>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>UserName</th>
+      <th>Email ID</th>
+    </tr>
+  </thead>
+  <tbody> -->
+    <!-- let and of are predefined option is userdefined -->
+    <!-- <tr *ngFor="let option of tableData" [ngStyle]="{'background-color':option.username ==='Bret' ?'red':'blue'}">
+      <td>{{option.id}}</td>
+      <td>{{option.name}}</td>
+      <td>{{option.username}}</td>
+      <td>{{option.email}}</td>
+    </tr>
 
-   </tbody>
- </table>
+  </tbody>
+</table>
 
- <div [ngSwitch]="switchData">
-   <p *ngSwitchCase="'ab'">Blue</p>
-   <p *ngSwitchCase="'bc'">green</p>
-   <p *ngSwitchDefault >NO Data</p>
+<div [ngSwitch]="switchData">
+  <p *ngSwitchCase="'ab'">Blue</p>
+  <p *ngSwitchCase="'bc'">green</p>
+  <p *ngSwitchDefault>NO Data</p>
 
- </div>
+</div>
 
- <div>
-   <div>
+<div>
+  <div>
 
-   </div>
-   <div>
-     
   </div>
   <div>
-     
+
   </div>
- </div>
+  <div>
+
+  </div>
+</div> -->
+<a routerLink="/mobiles">  Mobiles</a>
+<router-outlet></router-outlet>

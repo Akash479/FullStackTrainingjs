@@ -15,6 +15,9 @@ import { ConverionPipe } from './converion.pipe';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserDirective } from './user.directive';
+import { MobilesComponent } from './mobiles/mobiles.component';
+import { SamsunngComponent } from './samsunng/samsunng.component';
+import { NokiaComponent } from './nokia/nokia.component';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -27,7 +30,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     LoginComponent,
     ConverionPipe,
     RegisterComponent,
-    UserDirective
+    UserDirective,
+    MobilesComponent,
+    SamsunngComponent,
+    NokiaComponent
   ],
   imports: [
     BrowserModule,
