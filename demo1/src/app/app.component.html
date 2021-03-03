@@ -108,5 +108,71 @@ HIiiiiiiiii
 
   </div>
 </div> -->
-<a routerLink="/mobiles">  Mobiles</a>
-<router-outlet></router-outlet>
+<!-- <a routerLink="/mobiles">  Mobiles</a>
+<router-outlet></router-outlet> -->
+<!-- required
+minlength
+maxlength
+min and max -->
+
+<!-- ng-valid ng-invalid
+ng-dirty ng-pristine
+ng-touched ng-untouched  -->
+
+
+<form nz-form #registerForm ="ngForm">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input name="email" type="email" id="email" [(ngModel)]="email" #email1="ngModel"  required>
+    </nz-form-control>
+   <span *ngIf="(email1.touched ||registerForm.submitted) && email1.invalid"> Email Should not be Empty</span> 
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="username">UserName</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input name="username" type="input" id="username" [(ngModel)]="username" #username1="ngModel"   minlength="5" required>
+    </nz-form-control>
+    {{username1.invalid}}
+    <span *ngIf="(username1.touched ||registerForm.submitted) && username1.invalid">  UserName Should not be Empty</span> 
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="Password">Password</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input name="Password" type="Password" id="Password" [(ngModel)]="Password"   #password1="ngModel" required min="5">
+    </nz-form-control>
+    <span *ngIf="(password1.touched ||registerForm.submitted) && password1.invalid"> Password Should not be Empty</span> 
+  </nz-form-item >
+<div style="text-align: center;">
+  <button nz-button *ngIf="registerForm.valid" >Submit</button>
+  {{registerForm.valid}}
+</div>
+</form>
+
+
+<form nz-form [formGroup]="reactForm" >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input formControlName="email" nz-input name="email" type="email" id="email">
+    </nz-form-control>
+   <span *ngIf="submitted && f.email.errors" ><span *ngIf="f.email.errors.required"> Email Should not be Empty</span> </span>
+  </nz-form-item >
+  
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="Password">Password</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input formControlName="Password" name="Password" type="Password" id="Password">
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="UserName">UserName</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input formControlName="UserName" name="UserName" type="UserName" id="UserName">
+    </nz-form-control>
+  </nz-form-item >
+  <div style="text-align: center;">
+    <button nz-button  (click)="submit()">Submit</button>
+    {{reactForm.valid}}
+  </div>
+</form>

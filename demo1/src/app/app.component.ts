@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { ApiService } from './api.service';
 
 @Component({
@@ -23,7 +24,19 @@ export class AppComponent {
   colorFlag:any;
   tableData:any;
   switchData:any;
-  constructor(private api:ApiService){
+  registerForm:any;
+  email: any;
+  username:any;
+  Password:any;
+  reactForm:FormGroup;
+  submitted:any
+  constructor(private api:ApiService,
+    private formBuilder:FormBuilder){
+    this.reactForm= this.formBuilder.group({
+      email:['',[Validators.required,Validators.minLength(5)]],
+      Password:[''],
+      UserName:['']
+    })
     this.colorFlag= true;
     this.Date= new Date();
     this.switchData="";
@@ -45,6 +58,7 @@ this.number1=25689.8955;
 this.fullLength=120;
 this.jvalue={'name':"angular",ver:11};
   }
+  get f() { return this.reactForm.controls; }
   m1(){
     alert("Hii")
   }
@@ -56,5 +70,8 @@ this.jvalue={'name':"angular",ver:11};
       this.switchData="bc"
       this.colorFlag=!this.colorFlag;
       this.api.getData().subscribe(res=>this.tableData=res);
+    }
+    submit(){
+this.submitted=true;
     }
 }
