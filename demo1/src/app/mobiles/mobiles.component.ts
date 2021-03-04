@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mobiles',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobilesComponent implements OnInit {
 
+  basicPrice=150; 
+
   constructor() { }
 
   ngOnInit(): void {
   }
+  parentClick(data:any){{
+    console.log(data)
+  }}
 
 }

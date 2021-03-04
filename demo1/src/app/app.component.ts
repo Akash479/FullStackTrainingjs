@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { ApiService } from './api.service';
+import { employee} from './dataObect';
 
 @Component({
   selector: 'app-root',
@@ -29,9 +30,17 @@ export class AppComponent {
   username:any;
   Password:any;
   reactForm:FormGroup;
-  submitted:any
+  submitted:any;
+  // emp:any;
   constructor(private api:ApiService,
-    private formBuilder:FormBuilder){
+    private formBuilder:FormBuilder,
+    private emp:employee // loosely Coupled
+    ){
+    //  this.emp= new employee(); // tigthly Coupled
+     this.emp.add();
+     this.emp.substract();
+     this.emp.multiply();
+
     this.reactForm= this.formBuilder.group({
       email:['',[Validators.required,Validators.minLength(5)]],
       Password:[''],

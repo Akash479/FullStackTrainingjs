@@ -18,6 +18,7 @@ import { UserDirective } from './user.directive';
 import { MobilesComponent } from './mobiles/mobiles.component';
 import { SamsunngComponent } from './samsunng/samsunng.component';
 import { NokiaComponent } from './nokia/nokia.component';
+import { employee } from './dataObect';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -45,7 +46,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HttpClientModule
 
   ],
-  providers: [{ provide: NZ_ICONS, useValue: icons }],
+  providers: [{ provide: NZ_ICONS, useValue: icons },employee],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

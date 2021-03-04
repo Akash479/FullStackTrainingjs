@@ -8,8 +8,8 @@ import { NokiaComponent } from './nokia/nokia.component';
 
 const routes: Routes = [
   {path:'mobiles',component:MobilesComponent,children:[
-  {path:'samsunng',component:SamsunngComponent},
-  {path:'nokia',component:NokiaComponent
+  {path:'samsunng',component:SamsunngComponent,outlet: 'dialog'},
+  {path:'nokia',component:NokiaComponent,outlet: 'dialog'
 },
 ]
 },

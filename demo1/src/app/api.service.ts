@@ -9,7 +9,8 @@ export class ApiService {
 
   constructor(
     private http:HttpClient
-  ) { }
+  ) { 
+  }
 
 
   getData() :Observable<any>{
