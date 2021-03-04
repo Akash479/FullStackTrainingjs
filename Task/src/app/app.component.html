@@ -1,1 +1,134 @@
-{{Length|convert:'kilometer'}}
+<!-- {{Length|convert:'kilometer'}}
+  <nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+      <ul nz-menu nzTheme="dark" nzMode="inline">
+          <ul>
+            <li routerLink="/login" nz-menu-item>Login</li>
+            <li routerLink="/register" nz-menu-item>Register</li>
+          </ul>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout> -->
+
+  <!-- <nz-layout>
+    <nz-header>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
+        <li routerLink= "/mobiles" nz-menu-item nzSelected>Mobiles</li>
+        <li routerLink= "/fashion" nz-menu-item>Fashion</li>
+      </ul>
+    </nz-header>
+  <nz-layout>
+    <nz-sider nzWidth="200px" nzTheme="light" class= "sider-menu">
+          <router-outlet></router-outlet>
+    </nz-sider>
+    <nz-layout class="inner-layout">
+     <nz-content>
+      <router-outlet></router-outlet>
+     </nz-content>
+    </nz-layout>
+    </nz-layout>
+  </nz-layout> -->
+
+<h1>TEMPLATE FORM</h1>
+<form nz-form #regsform ="ngForm">
+  <nz-form-item >
+    <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input name="email" type="email" id="email" [(ngModel)]="email">
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="username">UserName</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input name="username" type="username" id="username" [(ngModel)]="username">
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="password">Password</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input name="password" type="password" id="password" [(ngModel)]="password">
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="phonenumber">PhoneNumber</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input nz-input name="phonenumber" type="phonenumber" id="phonenumber" [(ngModel)]="phonenumber">
+    </nz-form-control>
+  </nz-form-item >
+<div style="margin-left:20.5%; padding-bottom: 1.5%;" >
+    <nz-form-label [nzSpan]="6" nzFor="country">Country</nz-form-label>
+<nz-select [(ngModel)]="state" (ngModelChange)="optionsChange($event)" nzPlaceHolder="Select a Country" >
+  <nz-option nzValue="India" nzLabel="India"></nz-option>
+  <nz-option nzValue="United States" nzLabel="United States"></nz-option>
+</nz-select>
+<nz-form-label style="margin-left: 20%;" [nzSpan]="6" nzFor="state">State</nz-form-label>
+<nz-select nzPlaceHolder="Select a State">
+  <nz-option *ngFor="let data of statesDropdown" [nzValue]="data.state" [nzLabel]="data.state"></nz-option>
+</nz-select>
+  </div>  
+<nz-form-item *nzIf="regsform.valid" nz-row class="register-area">
+  <nz-form-control [nzSpan]="14" [nzOffset]="6">
+    <button nz-button nzType="primary">Register</button>
+  </nz-form-control>
+</nz-form-item>
+</form>
+
+
+
+
+<h1>REACTIVE FORM</h1>
+<form nz-form [formGroup]="reacform">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input formControlName= "email" nz-input name="email" type="email" id="email">
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="username">UserName</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input formControlName= "username" nz-input name="username" type="username" id="username">
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="password">Password</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input formControlName= "password" nz-input name="password" type="password" id="password">
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="phonenumber">PhoneNumber</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <input formControlName= "phonenumber" nz-input name="phonenumber" type="phonenumber" id="phonenumber">
+    </nz-form-control>
+  </nz-form-item >
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="country">Country</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <nz-select nzPlaceHolder="Select a Country" >
+        <nz-option nzValue="India" nzLabel="India"></nz-option>
+        <nz-option nzValue="United States" nzLabel="United States"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="state">State</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <nz-select nzPlaceHolder="Select a State">
+        <nz-option *ngFor="let data of statesDropdown" nzValue="data.state" nzLabel="data.state"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+<nz-form-item nz-row class="register-area">
+  <nz-form-control [nzSpan]="14" [nzOffset]="6">
+    <button nz-button nzType="primary">Register</button>
+  </nz-form-control>
+</nz-form-item>
+</form>

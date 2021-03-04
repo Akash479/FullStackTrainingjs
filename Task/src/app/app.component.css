@@ -1,0 +1,25 @@
+.header-menu {
+  text-align:center;
+}
+
+.sider-menu {
+  padding-top: 2%;
+  padding-left: 2%;
+}
+
+.inner-layout {
+  padding: 0 24px 24px;
+}
+
+nz-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+}
+.register-area {
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+}
