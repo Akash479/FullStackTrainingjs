@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,9 @@ export class AppComponent {
   countryDropdown:any
   statesDropdown:any;
   state:any;
-  Countrya:any;
+  country:any;
   data:any;
+  tableData:any;
 
 
   regsform:any;
@@ -26,27 +28,32 @@ export class AppComponent {
   title = 'demo';
   isCollapsed: any;
   Length:any;
-  constructor(private formBuilder:FormBuilder){
+  constructor(private api:ApiService, private formBuilder:FormBuilder){
     this.Length=500;
-    this.isCollapsed = false;
+    this.isCollapsed = false ;
 
     this.reacform= this.formBuilder.group({
       email:[''],
       username:[''],
       password:[''],
       phonenumber:[''],
+      state:[''],
+
     })
 
     this.jsonCountries=[
-      {Country:'India',State:"AP"},
-      {Country:'India',State:"BR"},
-      {Country:'India',State:"GOA"},
-      {Country:'United States',State:"NY"},
-      {Country:'United States',State:"LA"},
-      {Country:'United States',State:"TX"},
+      {country:'India',state:"AP"},
+      {country:'India',state:"BR"},
+      {country:'India',state:"GOA"},
+      {country:'United states',state:"NY"},
+      {country:'United States',state:"LA"},
+      {country:'United States',state:"TX"},
     ];
   }
   optionsChange(value:any){
-    this.statesDropdown=this.jsonCountries.filter((item:any)=>item.Country ===value);
+    this.statesDropdown=this.jsonCountries.filter((item:any)=>item.country ===value);
+  }
+  ClickMe(){
+    this.api.getData().subscribe(res=>this.tableData=res);
   }
 }
