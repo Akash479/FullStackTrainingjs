@@ -1,7 +1,8 @@
-<!-- <div>
-<a routerLink="/samsunng">Samsunng</a>
-<a routerLink="/nokia">Nokia</a>
-</div> -->
+<div>
+<a routerLink="/mobiles/samsunng">Samsunng</a>
+<a [routerLink]="[{ outlets: { 'sidebar': ['nokia'] } }]">Nokia</a>
+</div>
 <h2>Hiii</h2>
 
 <app-nokia   [cBasicprice]="basicPrice"  (myOutput)="parentClick($event)"  ></app-nokia>
+<!-- <app-login></app-login> -->
