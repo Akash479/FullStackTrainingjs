@@ -1,8 +1,23 @@
 <div>
-<a routerLink="/mobiles/samsunng">Samsunng</a>
-<a [routerLink]="[{ outlets: { 'sidebar': ['nokia'] } }]">Nokia</a>
-</div>
-<h2>Hiii</h2>
+<a routerLink="/mobiles/sampath">Samsunng</a>
 
-<app-nokia   [cBasicprice]="basicPrice"  (myOutput)="parentClick($event)"  ></app-nokia>
+<a [routerLink]="['/mobiles',{
+    outlets:{
+        'nokioutlet':['nokiapath']
+    }
+}] ">Nokia</a>
+</div>
+
+
+
+
+
+<h2>Hiii</h2>
+<router-outlet></router-outlet>
+<div style="background-color: red;">
+<router-outlet name="nokioutlet"></router-outlet>
+</div>
+
+<!-- <app-nokia   [cBasicprice]="basicPrice"  (myOutput)="parentClick($event)"  ></app-nokia> -->
 <!-- <app-login></app-login> -->
+

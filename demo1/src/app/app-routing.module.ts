@@ -5,16 +5,17 @@ import { MobilesComponent } from './mobiles/mobiles.component';
 import { RegisterComponent } from './register/register.component';
 import { SamsunngComponent } from './samsunng/samsunng.component';
 import { NokiaComponent } from './nokia/nokia.component';
+import { AuthServiceService } from './auth-service.service';
+import { FormDiscardService } from './form-discard.service';
 
 const routes: Routes = [
-  {path:'mobiles',component:MobilesComponent,children:[
-  {path:'samsunng',component:SamsunngComponent,},
-  {path:'nokia',component:NokiaComponent,outlet: 'sidebar'
-},
-]
-},
+  {path:'mobiles',component:MobilesComponent,canActivate:[AuthServiceService],
+children:[{
+  path:'nokiapath',outlet:'nokioutlet',component:NokiaComponent},
+  {path:'sampath',component:SamsunngComponent}
+]},
   {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent}
+  {path:'register',component:RegisterComponent,canDeactivate:[FormDiscardService]}
 
 ];
 
