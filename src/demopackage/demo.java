@@ -31,15 +31,19 @@ public class demo {
 		
 	}
      
-
+	static int i=-1;
 	public static void main(String[] args) {
-		int age=25;
+		
+	
+		System.out.println(~i);
+		
+//		int age=25;
 //		if(age >25) {
 //			System.out.println("Value Greater than  25");
 //		}else {
 //			System.out.println("Value less  than  25");
 //		}
-		System.out.println( age>25 ? "Value Greater than  25" : "Value less  than  25" );
+//		System.out.println( age>25 ? "Value Greater than  25" : "Value less  than  25" );
 		
 //		demo d= new demo();
 //		d.m1();
