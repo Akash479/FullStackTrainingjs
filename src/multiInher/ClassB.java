@@ -18,7 +18,7 @@ public class ClassB {
 //		}
 
 	void m5() {
-		
+		System.out.println("Day 40");
 		System.out.println("classB m5 ");
 	}
 
