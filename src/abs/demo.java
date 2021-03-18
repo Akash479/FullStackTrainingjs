@@ -1,5 +1,7 @@
 package abs;
 
+import covirant.*;
+
  abstract  class parent{
 	 abstract void  m3();
 	 void m3(String s) {
