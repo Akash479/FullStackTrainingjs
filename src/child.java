@@ -7,8 +7,10 @@ class childc implements in,in2{
 		
 	}
 	public static void main(String args[]) {
-		in i= new childc();
-		i.m3();
+//		in i= new childc();
+//		i.m3();
+		
+		
 	}
 	
 }
