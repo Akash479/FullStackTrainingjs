@@ -1,5 +1,20 @@
 package String;
 
+
+final class ImmutClass{
+	
+	final String id;
+	
+	public ImmutClass(String id){
+		this.id=id;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
+	
+}
 public class strClass {
 	
 	static String s="samrat";
