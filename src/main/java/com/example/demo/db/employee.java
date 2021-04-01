@@ -1,6 +1,5 @@
 package com.example.demo.db;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,10 +13,8 @@ public class employee {
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY )
 	public int id;
-	@Column(name="name")
 	public String  name;
-	@Column(name="Salary")
-	public Long Salary;
+	public int Salary;
 	public int getId() {
 		return id;
 	}
@@ -30,10 +27,10 @@ public class employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Long getSalary() {
+	public int getSalary() {
 		return Salary;
 	}
-	public void setSalary(Long salary) {
+	public void setSalary(int salary) {
 		Salary = salary;
 	}
 	public employee() {
