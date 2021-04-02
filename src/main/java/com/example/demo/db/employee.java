@@ -37,5 +37,9 @@ public class employee {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "employee [id=" + id + ", name=" + name + ", Salary=" + Salary + "]";
+	}
 	
 }
