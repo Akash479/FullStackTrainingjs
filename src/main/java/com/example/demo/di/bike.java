@@ -9,6 +9,11 @@ public class bike implements Vechile {
 	@Override
 	public void m2() {
 	System.out.println("bike m2");
+	
+	 
+	  
+
+	
 		
 	}
 
