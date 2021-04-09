@@ -5,10 +5,12 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/controller")
 
 // localhost:9000/controller/save
+
 public class resoirces {
+	
+	
 	@Autowired
 	ServiceImpl serI;
 	@Autowired
@@ -34,17 +39,14 @@ public class resoirces {
 		
 		return serI.add();
 	}
-//	@GetMapping("/update")
-//	@Transactional
-//	public String upadte() {
-//		System.out.println("Safasfs");
-//		employee e= new employee();
-//		e.setName("varma");
-//		System.out.println(e.getName());
-//		 jdbcTemplate.update("update Employee set name='"+e.getName()+"' where id=2 ");
-//		 return "SucessFully Updated";
-//		
-//	}
+	@GetMapping("/update")
+	@Transactional
+	public String upadte() {
+		
+		
+		 return serI.updateDataInDb();
+		
+	}
 //
 //	@GetMapping("/delete")
 //	@Transactional
@@ -84,10 +86,11 @@ public class resoirces {
 	}
 	
 	//http://localhost:9000/controller/reqParam?name1=value1&name2=value2
-	@GetMapping("/reqParam")
+	@GetMapping(value="/reqParam",produces = MediaType.APPLICATION_XML_VALUE)
 	public Messge D211(@RequestParam("username") String uname,@RequestParam("password") String pword) {
 		String s= "UserName:  "+uname+"Password:  "+pword;
 	
-		return new Messge(s);
+	return new Messge(s);
+		//return "afsafjas";
 	}
 }

@@ -1,8 +1,17 @@
 package com.example.demo.db;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+//@XmlRootElement(name = "fields")
+//@XmlAccessorType(XmlAccessType.FIELD)
+//
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Messge {
 
-	
 	public String me;
 
 	public String getMe() {

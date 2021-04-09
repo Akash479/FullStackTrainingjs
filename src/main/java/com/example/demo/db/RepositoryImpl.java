@@ -1,8 +1,12 @@
 package com.example.demo.db;
 
-public interface RepositoryImpl {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RepositoryImpl extends JpaRepository<employee, Integer>{
 	
-	String add();
+	
+	public employee findByName(String name);
+	
 	
 
 }

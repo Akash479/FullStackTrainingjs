@@ -12,5 +12,10 @@ public class ServiceImpl implements ServiceInterface {
 	public String add() {
 		return RepoClass.add();
 	}
+	@Override
+	public String updateDataInDb() {
+		// TODO Auto-generated method stub
+		return RepoClass.updateDataInDb();
+	}
 
 }
