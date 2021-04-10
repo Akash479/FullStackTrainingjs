@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.di.van;
+
 @RestController
 @RequestMapping("/controller")
 
@@ -31,6 +33,8 @@ public class resoirces {
 	ServiceImpl serI;
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	@Autowired
+	van va;
 	
 	@GetMapping(value="/save",produces = MediaType.APPLICATION_JSON_VALUE)
 	//@GetMapping("/save")
@@ -93,4 +97,12 @@ public class resoirces {
 	return new Messge(s);
 		//return "afsafjas";
 	}
+	@GetMapping("/abc")
+	 public String msge() {
+		 va.me();
+		 
+		 return "Bean Concept";
+	 }
+	
+	
 }
