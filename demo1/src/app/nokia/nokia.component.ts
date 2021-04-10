@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 
 @Component({
@@ -6,11 +6,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './nokia.component.html',
   styleUrls: ['./nokia.component.css']
 })
-export class NokiaComponent implements OnInit {
+export class NokiaComponent implements OnInit,OnChanges {
 
   @Input() cBasicprice:any;
   @Output() myOutput:EventEmitter<any>=new EventEmitter();
   constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+   console.log(changes)
+  }
 
   ngOnInit(): void {
     console.log(this.cBasicprice);

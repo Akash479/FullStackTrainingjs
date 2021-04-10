@@ -7,15 +7,12 @@ import { SharedService } from '../SharedService';
   templateUrl: './mobiles.component.html',
   styleUrls: ['./mobiles.component.css']
 })
-export class MobilesComponent implements OnInit,OnChanges {
+export class MobilesComponent implements OnInit {
 
   basicPrice=150; 
 
   constructor( private dataShare:DataShare,private share:SharedService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    console.log("ngOnChanges()")
-  }
+ 
 
   ngOnInit(): void {
     console.log(this.dataShare.getEmail());

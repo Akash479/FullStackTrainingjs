@@ -30,6 +30,7 @@ export class AppComponent {
   username:any;
   Password:any;
   reactForm:FormGroup;
+  color:any
   submitted:any;
   // emp:any;
   constructor(private api:ApiService,
@@ -46,7 +47,7 @@ export class AppComponent {
       Password:[''],
       UserName:['']
     })
-    this.colorFlag= true;
+    this.colorFlag= true;this.color='red';
     this.Date= new Date();
     this.switchData="";
     this.jsonCountries=[

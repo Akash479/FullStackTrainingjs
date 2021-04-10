@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
+   console.log("dadRegister")
   }
   formSubmit(value:any):any{
     if(!this.email && !this.password){

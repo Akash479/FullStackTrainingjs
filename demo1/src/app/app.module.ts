@@ -21,6 +21,7 @@ import { NokiaComponent } from './nokia/nokia.component';
 import { employee } from './dataObect';
 import { AuthServiceService } from './auth-service.service';
 import { FormDiscardService } from './form-discard.service';
+import { UserColorDirective } from './user-color.directive';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -36,7 +37,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     UserDirective,
     MobilesComponent,
     SamsunngComponent,
-    NokiaComponent
+    NokiaComponent,
+    UserColorDirective
   ],
   imports: [
     BrowserModule,
