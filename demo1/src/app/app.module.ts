@@ -22,6 +22,7 @@ import { employee } from './dataObect';
 import { AuthServiceService } from './auth-service.service';
 import { FormDiscardService } from './form-discard.service';
 import { UserColorDirective } from './user-color.directive';
+import { commonFiles } from './providers';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -50,7 +51,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HttpClientModule
 
   ],
-  providers: [{ provide: NZ_ICONS, useValue: icons },employee,AuthServiceService,FormDiscardService],
+  providers: [{ provide: NZ_ICONS, useValue: icons },employee,AuthServiceService,FormDiscardService,commonFiles],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

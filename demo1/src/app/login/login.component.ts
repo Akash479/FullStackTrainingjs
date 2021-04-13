@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { DataShare } from '../dataShare';
+import { commonFiles } from '../providers';
 import { SharedService } from '../SharedService';
 
 @Component({
@@ -17,10 +18,11 @@ export class LoginComponent implements OnInit {
   emaillog:any;
   constructor(
     private formBuilder:FormBuilder,private dataShare:DataShare,
-    private shareService:SharedService, private router:Router) { 
+    private shareService:SharedService, private router:Router,
+    private commonFiles:commonFiles) { 
       this.validateForm=this.formBuilder.group({
-        userName:['ashok'],
-        password:['1234'],
+        userName:['',Validators.required],
+        password:['',Validators.required],
         remember:['']
       })
      
@@ -33,6 +35,14 @@ export class LoginComponent implements OnInit {
   }
   redirectTo(){
 this.router.navigateByUrl('/register');
+  }
+  loginMethod(){
+    if(this.validateForm.invalid){
+      this.commonFiles.notificationMessage(" Please Fill the Fields");
+    }else{
+      this.commonFiles.notificationMessage("Login Success");
+    }
+  
   }
   
 }

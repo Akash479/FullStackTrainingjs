@@ -23,7 +23,7 @@
         <a class="login-form-forgot">Forgot password</a>
       </div>
     </div>
-    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" >Log in</button>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="loginMethod()">Log in</button>
     Or <a (click)="redirectTo()"> register now! </a>
   </form>
   <!-- <h1>Login Form</h1>
