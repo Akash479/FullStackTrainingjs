@@ -13,7 +13,10 @@ export class ApiService {
   }
 
 
-  getData() :Observable<any>{
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+  getData(url:any) :Observable<any>{
+    return this.http.get(url);
+  }
+  postData(url:any, formData:any):Observable<any>{
+    return this.http.post(url,formData);
   }
 }

@@ -79,7 +79,7 @@ this.jvalue={'name':"angular",ver:11};
     ColorChnage(){
       this.switchData="bc"
       this.colorFlag=!this.colorFlag;
-      this.api.getData().subscribe(res=>this.tableData=res);
+     // this.api.getData().subscribe(res=>this.tableData=res);
     }
     submit(){
 this.submitted=true;

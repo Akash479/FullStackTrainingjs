@@ -2,7 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { ApiService } from '../api.service';
+import { SAVE_USER } from '../constant';
 import { DataShare } from '../dataShare';
+import { saveUser } from '../models/saveUser';
 import { commonFiles } from '../providers';
 
 @Component({
@@ -15,8 +18,11 @@ export class RegisterComponent implements OnInit {
 
  
   validateForm!: FormGroup;
-  constructor(private DataShare:DataShare,private fb: FormBuilder,private router:Router,
-    private commonFiles:commonFiles
+  constructor(private DataShare:DataShare,
+    private fb: FormBuilder,
+    private router:Router,
+    private commonFiles:commonFiles,
+    private ApiService:ApiService
     ) {
     this.validateForm = this.fb.group({
       email: [null, [Validators.email, Validators.required]],
@@ -25,7 +31,6 @@ export class RegisterComponent implements OnInit {
       nickname: [null, [Validators.required]],
       phoneNumberPrefix: ['+86'],
       phoneNumber: [null, [Validators.required]],
-      website: [null, [Validators.required]],
      
       agree: [false]
     });
@@ -45,8 +50,13 @@ export class RegisterComponent implements OnInit {
         this.validateForm.controls[i].updateValueAndValidity();
       }
     }else{
-        this.commonFiles.notificationMessage(" Registered SucessFully");
+      let formData= this.validateForm.value;
+      const saveUserr = new saveUser(formData.nickname,formData.phoneNumber,formData.password,formData.checkPassword,formData.email)
+      this.ApiService.postData(SAVE_USER,saveUserr).subscribe(res=>{
+        this.commonFiles.notificationMessage(res.message);
         this.router.navigateByUrl("/login");
+      })
+        
     }
     
   }
