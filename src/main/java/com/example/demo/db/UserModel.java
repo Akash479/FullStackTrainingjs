@@ -4,7 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.*;
 
 @Entity
 @Table
@@ -18,6 +20,14 @@ public class UserModel {
 	public String passWord;
 	public String cnfmPassword;
 	public String email;
+	@OneToMany
+	public List<Subjectmodel> sm;
+	public List<Subjectmodel> getSm() {
+		return sm;
+	}
+	public void setSm(List<Subjectmodel> sm) {
+		this.sm = sm;
+	}
 	public int getId() {
 		return id;
 	}
