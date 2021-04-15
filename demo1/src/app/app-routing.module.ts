@@ -7,6 +7,7 @@ import { SamsunngComponent } from './samsunng/samsunng.component';
 import { NokiaComponent } from './nokia/nokia.component';
 import { AuthServiceService } from './auth-service.service';
 import { FormDiscardService } from './form-discard.service';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   //   {path:'mobiles',component:MobilesComponent,canActivate:[AuthServiceService],
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomeComponent }
 
 
 

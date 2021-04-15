@@ -10,6 +10,8 @@ export class DataShare {
   }
   email:any;
 
+  username:any;
+
   authFlag:any;
 
   getAuthFlag(){
@@ -25,6 +27,14 @@ setAuthFlag(authFlag:any){
   setEmail(email:any){
       this.email=email;
   }
+
+  getUsername(){
+    return this.username;
+}
+setUsername(username:any){
+    this.username=username;
+}
+
 
  
 }

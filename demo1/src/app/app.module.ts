@@ -23,6 +23,7 @@ import { AuthServiceService } from './auth-service.service';
 import { FormDiscardService } from './form-discard.service';
 import { UserColorDirective } from './user-color.directive';
 import { commonFiles } from './providers';
+import { HomeComponent } from './home/home.component';
 
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
@@ -39,7 +40,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     MobilesComponent,
     SamsunngComponent,
     NokiaComponent,
-    UserColorDirective
+    UserColorDirective,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

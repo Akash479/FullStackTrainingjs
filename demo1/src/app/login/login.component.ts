@@ -50,7 +50,9 @@ this.router.navigateByUrl('/register');
       }
 
       this.api.postData(LOGIN_USER,reqObj).subscribe(res=>{
-        this.commonFiles.notificationMessage(res.message);
+        this.commonFiles.notificationMessage(res.messsage);
+        this.dataShare.setUsername(formData.userName);
+        this.router.navigateByUrl("/home");
       })
      
     }
