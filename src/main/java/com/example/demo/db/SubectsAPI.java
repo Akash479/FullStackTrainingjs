@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.*;
 
 @RestController
 @RequestMapping("/subjectsApi")
@@ -17,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class SubectsAPI {
 	@Autowired
 	UserRepoInterface userRepo;
+	
+	String FindByName;
+	@Autowired
+	SubjectsInterrepo SubjectsInterrepo;
 	
 	@PostMapping("/adduser")
 	ResponseObject  addUser(@RequestBody UserModel um) {
@@ -41,13 +46,46 @@ public class SubectsAPI {
 	}
 	
 	@GetMapping("/getAllData/{userName}")
-	public  Optional<UserModel> getAllData(@PathVariable String userName) {
-		
-		Optional<UserModel> um= userRepo.findByUserName(userName);
-		
+	public  UserModel getAllData(@PathVariable String userName) {
+		FindByName=userName;
+		UserModel um= userRepo.findByUserName(userName);
 		return um;
 		
 	}
+	@PostMapping("/addSubjects")
+	public ResponseObject  saveSubjects(@RequestBody Reqsubects rs ) {
+		System.out.println( "load"+rs.getId());
+		if(rs.getId() == 0) {
+			UserModel um = userRepo.findByUserName(FindByName);
+			Subjectmodel sm= new Subjectmodel();
+			sm.setSubjName(rs.getSubjName());
+			sm.setDate(rs.getDate());
+			sm.setMarks(rs.getMarks());
+			sm.setUs(um);
+			ArrayList<Subjectmodel> al= new ArrayList<>();
+			al.add(sm);
+			um.setSm(al);
+			userRepo.save(um);
+			return  new ResponseObject("Saved SucessFully");
+		}	
+		else {
+			System.out.println("edit"+rs.getId());
+			Subjectmodel dmsm = SubjectsInterrepo.findById(rs.getId()).orElse(null);
+			dmsm.setSubjName(rs.getSubjName());
+			dmsm.setDate(rs.getDate());
+			dmsm.setMarks(rs.getMarks());
+			SubjectsInterrepo.save(dmsm);
+			return  new ResponseObject("Updated SucessFully");
+		}
+		
+		
+	}
 	
+	@GetMapping("/deleteSub/{id}")
+	ResponseObject deleteSub(@PathVariable int id) {
+		SubjectsInterrepo.deleteById(id);
+		
+		return  new ResponseObject("Deleted SucessFully");
+	}
 
 }

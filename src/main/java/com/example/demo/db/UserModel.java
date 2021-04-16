@@ -1,5 +1,6 @@
 package com.example.demo.db;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class UserModel {
 	public String passWord;
 	public String cnfmPassword;
 	public String email;
-	@OneToMany
+	@OneToMany(mappedBy = "us", cascade = CascadeType.ALL)
 	public List<Subjectmodel> sm;
 	public List<Subjectmodel> getSm() {
 		return sm;
