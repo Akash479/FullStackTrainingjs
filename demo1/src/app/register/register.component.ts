@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
       let formData= this.validateForm.value;
       const saveUserr = new saveUser(formData.nickname,formData.phoneNumber,formData.password,formData.checkPassword,formData.email)
       this.ApiService.postData(SAVE_USER,saveUserr).subscribe(res=>{
-        this.commonFiles.notificationMessage(res.message);
+        this.commonFiles.notificationMessage(res.messsage);
         this.router.navigateByUrl("/login");
       })
         

@@ -50,9 +50,14 @@ this.router.navigateByUrl('/register');
       }
 
       this.api.postData(LOGIN_USER,reqObj).subscribe(res=>{
-        this.commonFiles.notificationMessage(res.messsage);
-        this.dataShare.setUsername(formData.userName);
-        this.router.navigateByUrl("/home");
+        if(res.messsage !='Please Check the User name and password'){
+          this.commonFiles.notificationMessage(res.messsage);
+          this.dataShare.setUsername(formData.userName);
+          this.router.navigateByUrl("/home");
+        }else{
+          this.commonFiles.notificationMessage(res.messsage);
+        }
+        
       })
      
     }

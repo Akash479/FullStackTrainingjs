@@ -19,4 +19,8 @@ export class ApiService {
   postData(url:any, formData:any):Observable<any>{
     return this.http.post(url,formData);
   }
+delete(url:any):Observable<any>{
+  return this.http.delete(url);
+}
+
 }
